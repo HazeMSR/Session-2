@@ -21,6 +21,10 @@ In this session we are talking about some AWS essential services for our app arc
 3. Test the installation:
 > docker-compose --version
 
+### AWS CLI
+1. Configure AWS CLI:
+> sudo aws configure
+
 ### Minikube
 1. Check the architecture of your current server:
 > uname -a
