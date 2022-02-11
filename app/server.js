@@ -6,6 +6,7 @@ let bodyParser = require('body-parser');
 let cors = require('cors');
 let app = express();
 app.use(cors());
+app.options('*', cors());
 
 app.use(bodyParser.urlencoded({
 	extended: true
