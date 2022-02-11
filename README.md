@@ -38,3 +38,8 @@ sudo install minikube-darwin-amd64 /usr/local/bin/minikube
 
 4. Check Minikube status:
 > minikube status
+
+5. Get nodes:
+> kubectl get node
+
+6. 
