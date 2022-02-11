@@ -13,11 +13,11 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
-app.get('/', function (req, res) {
+app.get('/', cors(), function (req, res) {
 	res.sendFile(path.join(__dirname, "index.html"));
 });
 
-app.get('/profile-picture', function (req, res) {
+app.get('/profile-picture', cors(), function (req, res) {
 	let img = fs.readFileSync(path.join(__dirname, "images/profile-1.jpg"));
 	res.writeHead(200, { 'Content-Type': 'image/jpg' });
 	res.end(img, 'binary');
@@ -35,7 +35,7 @@ let mongoClientOptions = { useNewUrlParser: true, useUnifiedTopology: true };
 // "user-account" in demo with docker. "my-db" in demo with docker-compose
 let databaseName = "my-db";
 
-app.post('/update-profile', function (req, res) {
+app.post('/update-profile', cors(), function (req, res) {
 	let userObj = req.body;
 
 	MongoClient.connect(mongoUrlLocal, mongoClientOptions, function (err, client) {
@@ -57,7 +57,7 @@ app.post('/update-profile', function (req, res) {
 	res.send(userObj);
 });
 
-app.get('/get-profile', function (req, res) {
+app.get('/get-profile', cors(), function (req, res) {
 	let response = {};
 	// Connect to the db
 	MongoClient.connect(mongoUrlLocal, mongoClientOptions, function (err, client) {
